@@ -9,6 +9,7 @@ import {
 import Boton from './elementos/Botton';
 import BotonCerrarSesion from './elementos/BotonCerrarSesion';
 import FormularioGasto from './componentes/FormularioGasto';
+import BarraTotalGastado from './componentes/BarraTotalGastado';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         </ContenedorHeader>
       </Header>
       <FormularioGasto />
+      <BarraTotalGastado />
     </>
   );
 };

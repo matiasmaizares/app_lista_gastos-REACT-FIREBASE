@@ -15,6 +15,7 @@ import favicon from './imagenes/logo.png';
 import Fondo from './elementos/Fondo';
 import { AuthProvider } from './context/AuthConext';
 import RutaPrivada from './componentes/RutaPrivada';
+import { TotalGastadoProvider } from './context/TotalGastoEnElMesContext';
 
 WebFont.load({
   google: {
@@ -30,31 +31,31 @@ const Index = () => {
       </Helmet>
 
       <AuthProvider>
-        <BrowserRouter>
-          <Contenedor>
-            <Switch>
-              {/* Rutas publicas */}
-              <Route path='/iniciar-sesion' component={InicioSesion} />
-              <Route path='/crear-cuenta' component={RegistroUsuario} />
-
-              {/* Rutas privadas*/}
-              <RutaPrivada path='/categorias'>
-                <GastosPorCategoria />
-              </RutaPrivada>
-              <RutaPrivada path='/lista'>
-                <ListaDeGastos />
-              </RutaPrivada>
-              <RutaPrivada path='/editar/:id'>
-                <EditarGasto />
-              </RutaPrivada>
-              <RutaPrivada path='/'>
-                <App />
-              </RutaPrivada>
-            </Switch>
-          </Contenedor>
-        </BrowserRouter>
+        <TotalGastadoProvider>
+          <BrowserRouter>
+            <Contenedor>
+              <Switch>
+                {/* Rutas publicas */}
+                <Route path='/iniciar-sesion' component={InicioSesion} />
+                <Route path='/crear-cuenta' component={RegistroUsuario} />
+                {/* Rutas privadas*/}
+                <RutaPrivada path='/categorias'>
+                  <GastosPorCategoria />
+                </RutaPrivada>
+                <RutaPrivada path='/lista'>
+                  <ListaDeGastos />
+                </RutaPrivada>
+                <RutaPrivada path='/editar/:id'>
+                  <EditarGasto />
+                </RutaPrivada>
+                <RutaPrivada path='/'>
+                  <App />
+                </RutaPrivada>
+              </Switch>
+            </Contenedor>
+          </BrowserRouter>
+        </TotalGastadoProvider>
       </AuthProvider>
-
       <Fondo />
     </>
   );
